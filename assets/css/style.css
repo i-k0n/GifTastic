@@ -1,0 +1,10 @@
+.color {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 6px 11px 5px;
+    outline: 0;
+    border-radius: 4px;
+    border: 0;
+    letter-spacing: 0.05em;
+}
