@@ -157,18 +157,54 @@ $("#add-color").on("click", function(event) {
           method: "GET"
         }).then(function(response) {
         //   console.log(JSON.stringify(response))
-        console.log(response)
+            console.log(response)
             for (let i = 0; i < response.data.length; i++) {
                 const element = response.data[i];
-                $('.gifs').append("<img src='" + element.images.fixed_width.url + "' />");
+                var gifsDiv = $('.gifs');
+                var image = $('<img>');
+                // var src = image.attr('src', element.images.fixed_width_still.url);
+                // var dataStill = image.attr('data-still', element.images.fixed_width_still.url);
+                // var dataAnimage = image.attr('data-animate', element.images.fixed_width.url);
+                // var gifState = image.attr('data-state', 'still');
+                // src = element.images.fixed_width_still.url
+                // data-still = element.images.fixed_width_still.url
+                // data-animate = element.images.fixed_width.url
+                gifsDiv.append(
+                    $(image).attr({
+                        'src': element.images.fixed_width_still.url, 
+                        'data-still': element.images.fixed_width_still.url, 
+                        'data-animate': element.images.fixed_width.url, 
+                        'class': 'gif',
+                        'data-state': 'still'
+                    })
+                // gifsDiv.append("<img src='" + element.images.fixed_width_still.url + "' />");
+                )
+            // set a condition for a return of an error
             }
-        
-
-        // set a condition for a return of an error
-
         })
+    }
 
-
-      }
+    $(document).on("click", ".gif", function() {
+  
+        var state = $(this).attr('data-state');
+        var src = $(this).attr('src');
+        var stillData = $(this).attr('data-still')
+        var animateData = $(this).attr('data-animate')
+        
+        console.log("src1: ", src);
+        if (state === "still") {
+          
+          $(this).attr("src", animateData);
+          $(this).attr('data-state', 'animate');
+          console.log("src2: ", src);
+          console.log("state2: ", state);
+        } else if (state === "animate") {
+          
+          $(this).attr("src", stillData);
+          $(this).attr('data-state', 'still');
+          console.log("src3: ", src);
+          console.log("state3: ", state);
+        }
+      });
 
       $(document).on("click", ".color", displayColorGifs);
