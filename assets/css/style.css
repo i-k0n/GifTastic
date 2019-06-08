@@ -24,47 +24,87 @@ body {
 
 #add-color-form {
     max-width: 800px;
+    padding: 5px 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: stretch;
 }
 
 #color-input {
-    width: 63%;
-    max-width: 500px;
+    /* width: 63%;
     height: 40px;
     outline: 0;
+    padding: 8px 15px;
     border: 0;
     border-radius: 5px;
-    padding: 8px 15px;
+    font-size: 1.5em; */
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
+    width: 70%;
+    max-width: 600px;
+    height: 2.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;   
+}
+
+#color-input::-webkit-input-placeholder {
+    color: #bbb;       
+}
+#color-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #bbb;  
+    opacity:  1;
+}
+#color-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #bbb; bbbopacity:  1;
+}
+#color-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #bbb;  
+}
+#color-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #bbb;  
+}
+
+#color-input::placeholder { /* Most modern browsers support this now. */
+    color: #bbb;  
 }
 
 #add-color, #add-random-color {
-    height: 40px;
+    /* height: 40px;
     padding: 0.2em 1em;
     margin: 0 0 0 7px;
-    outline: 0;
-    border: 0;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
+    border: 1px solid transparent;
     font-size: 1.5em;
+    background-color: #bbb; */
+    outline: 0;
+    border: 0;
     text-transform: uppercase;
-    background-color: #bbb;
     color: #fff;
+    padding: 0.2rem 0.75rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    font-weight: 600;
 }
 
 #add-color {
-
+    background-color: orange;
+    margin: 0 15px;
 }
 
 #add-random-color {
-
+    background-color: orangered;
 }
 
 .color-buttons {
-    padding: 10px 0;
+    max-width: 800px;
+    padding: 5px;
     display: flex;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    flex-wrap: wrap;
 }
 
 .color {
@@ -72,10 +112,37 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.4em;
     line-height: 1em;
+    margin: 5px;
     padding: 8px 18px 8px;
     outline: 0;
     border-radius: 4px;
     border: 0;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+}
+
+.gifs {
+    max-width: 800px;
+    column-count: 3;
+    column-gap: 15px;
+    padding: 10px;
+}
+
+.gifs img {
+    width: 100%;
+    padding: 5px 0;
+}
+
+@media screen and (max-width: 600px) {
+    .gifs {
+        column-count: 2;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    /* split search into two rows */
+    .gifs {
+        column-count: 1;
+    }
 }

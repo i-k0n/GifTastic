@@ -5,6 +5,10 @@ function addButtons() {
     // empty button container before adding new colors
     colorButtonDiv.empty();
     $(colors).each(function(index) {
+
+        // remove whitespace from string
+        // str.replace(/ /g,'');
+
         var color = colors[index];
         var newButton = $("<button>");
         // Adding a class of movie to our button
@@ -28,13 +32,13 @@ function addButtons() {
             // ((Red value X 299) + (Green value X 587) + (Blue value X 114)) / 1000
             brightnessValue = ((r * 299) + (g * 587) + (b * 114)) / 1000;
             // console.log("brightnessValue: ", brightnessValue);
-            if (brightnessValue > 127) {
+            if (brightnessValue > 184) {
                 // bright, use black text
-                newButton.css('color', 'black');
+                newButton.css('color', '#666');
                 // return true;
             } else {
                 // dark, use white text
-                newButton.css('color', 'white');
+                newButton.css('color', '#fff');
                 // return false;
             }
         }
@@ -84,3 +88,46 @@ $("#add-color").on("click", function(event) {
     addButtons();
 
   });
+
+
+  //GIPHY
+//   var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
+
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).then(function(response) {
+//       console.log(response);
+//     });
+
+    function displayColorGifs() {
+
+        // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
+        $('.gifs').empty();
+        var color = $(this).text()
+        console.log(color)
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + color + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+        var colorDiv = $('<div>');
+        
+        
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+        //   console.log(JSON.stringify(response))
+        console.log(response)
+            for (let i = 0; i < response.data.length; i++) {
+                const element = response.data[i];
+                $('.gifs').append("<img src='" + element.images.fixed_width.url + "' />");
+            }
+        
+
+        // set a condition for a return of an error
+
+        })
+
+
+      }
+
+      $(document).on("click", ".color", displayColorGifs);
