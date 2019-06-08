@@ -12,7 +12,7 @@ function addButtons() {
         // Adding a data-attribute
         newButton.attr("data-name", color);
         // Providing the initial button text
-        newButton.text(color.toUpperCase());
+        newButton.text(color);
         newButton.css({'background-color': color});
         // Adding the button to the buttons-view div
         colorButtonDiv.append(newButton);
