@@ -12,6 +12,10 @@ body {
     background-image: url(../images/bg.png);
 }
 
+input, button {
+    -webkit-appearance: none;
+}
+
 .wrapper {
     width: 100%;
 }

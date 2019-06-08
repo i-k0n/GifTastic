@@ -6,6 +6,7 @@
 //    set label bg color
 
 // to-do
+// make 'add' and 'random' buttons move to next line at certain break points
 // add an x to remove colors
 // add autocomplete to help users find a color
 // add functionality to random button
@@ -50,18 +51,14 @@ function addButtons() {
         var chooseLabelColor = function(r, g, b) {
             // W3C formula for checking contrast, returns value between 0 - 255:
             // ((Red value X 299) + (Green value X 587) + (Blue value X 114)) / 1000
-            console.log(r, g, b)
             brightnessValue = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-            console.log(brightnessValue)
             // console.log("brightnessValue: ", brightnessValue);
             if (brightnessValue > 184) {
                 // bright, use black text
-                console.log("chose dark")
                 newButton.css('color', '#666');
                 // return true;
             } else {
                 // dark, use white text
-                console.log("chose light")
                 newButton.css('color', '#fff');
                 // return false;
             }
@@ -109,6 +106,23 @@ $("#add-color").on("click", function(event) {
     colors.push(color);
     // clear input box to reset for next input
     $('#color-input').val("");
+    // call function to process input and add a new button
+    addButtons();
+
+  });
+
+  $("#add-random-color").on("click", function(event) {
+    event.preventDefault();
+
+    // This line grabs the input from the textbox
+    var randomIndex = Math.floor(Math.random() * CSS_COLOR_NAMES_WITH_SPACES.length)
+    console.log(CSS_COLOR_NAMES_WITH_SPACES.length)
+    console.log(Math.floor(Math.random() * CSS_COLOR_NAMES_WITH_SPACES.length))
+    // CSS_COLOR_NAMES_WITH_SPACES
+    var color = CSS_COLOR_NAMES_WITH_SPACES[randomIndex];
+
+    // add input color to colors array
+    colors.push(color);
     // call function to process input and add a new button
     addButtons();
 
