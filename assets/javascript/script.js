@@ -12,10 +12,15 @@
 // add functionality to random button
 //   color = math.Random on CSS_COLOR_NAMES_WITH_SPACES array
 
-
-
-
+var colorArrays = [];
+    colorArrays[0] = ['Indian Red', 'Light Coral', 'Salmon', 'Dark Salmon', 'Light Salmon', 'Crimson', 'Red', 'Fire Brick', 'Dark Red'];
 var colors = [];
+var randomNum = (Math.floor(Math.random()));
+    colors = colorArrays[randomNum];
+    console.log(colors);
+
+
+
 
 
 function addButtons() {
@@ -90,12 +95,6 @@ var chooseLabelColor = function(r, g, b) {
     }
 }
 
-// keep that page from reloading on click
-// $('#add-color').click(function(event) {
-//     event.preventDefault();
-//     addButtons();
-// })
-
 $("#add-color").on("click", function(event) {
     event.preventDefault();
 
@@ -109,9 +108,9 @@ $("#add-color").on("click", function(event) {
     // call function to process input and add a new button
     addButtons();
 
-  });
+});
 
-  $("#add-random-color").on("click", function(event) {
+$("#add-random-color").on("click", function(event) {
     event.preventDefault();
 
     // This line grabs the input from the textbox
@@ -126,85 +125,75 @@ $("#add-color").on("click", function(event) {
     // call function to process input and add a new button
     addButtons();
 
-  });
+});
 
+function displayColorGifs() {
 
-  //GIPHY
-//   var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
+    // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
+    $('.gifs').empty();
+    var color = $(this).attr('data-name').replace(/\s+/g, '-').toLowerCase();
+    console.log(color)
+    var apiKey = "BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
+    var limit = "15";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + color + "&api_key=" + apiKey + "&limit=" + limit;
+    var colorDiv = $('<div>');
+    
+    
 
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     }).then(function(response) {
-//       console.log(response);
-//     });
-
-    function displayColorGifs() {
-
-        // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
-        $('.gifs').empty();
-        var color = $(this).attr('data-name').replace(/\s+/g, '-').toLowerCase();
-        console.log(color)
-        var apiKey = "BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
-        var limit = "15";
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + color + "&api_key=" + apiKey + "&limit=" + limit;
-        var colorDiv = $('<div>');
-        
-        
-
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-        //   console.log(JSON.stringify(response))
-            console.log(response)
-            for (let i = 0; i < response.data.length; i++) {
-                const element = response.data[i];
-                var gifsDiv = $('.gifs');
-                var image = $('<img>');
-                // var src = image.attr('src', element.images.fixed_width_still.url);
-                // var dataStill = image.attr('data-still', element.images.fixed_width_still.url);
-                // var dataAnimage = image.attr('data-animate', element.images.fixed_width.url);
-                // var gifState = image.attr('data-state', 'still');
-                // src = element.images.fixed_width_still.url
-                // data-still = element.images.fixed_width_still.url
-                // data-animate = element.images.fixed_width.url
-                gifsDiv.append(
-                    $(image).attr({
-                        'src': element.images.fixed_width_still.url, 
-                        'data-still': element.images.fixed_width_still.url, 
-                        'data-animate': element.images.fixed_width.url, 
-                        'class': 'gif',
-                        'data-state': 'still'
-                    })
-                // gifsDiv.append("<img src='" + element.images.fixed_width_still.url + "' />");
-                )
-            // set a condition for a return of an error
-            }
-        })
-    }
-
-    $(document).on("click", ".gif", function() {
-  
-        var state = $(this).attr('data-state');
-        var src = $(this).attr('src');
-        var stillData = $(this).attr('data-still')
-        var animateData = $(this).attr('data-animate')
-        
-        console.log("src1: ", src);
-        if (state === "still") {
-          
-          $(this).attr("src", animateData);
-          $(this).attr('data-state', 'animate');
-          console.log("src2: ", src);
-          console.log("state2: ", state);
-        } else if (state === "animate") {
-          
-          $(this).attr("src", stillData);
-          $(this).attr('data-state', 'still');
-          console.log("src3: ", src);
-          console.log("state3: ", state);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+    //   console.log(JSON.stringify(response))
+        console.log(response)
+        for (let i = 0; i < response.data.length; i++) {
+            const element = response.data[i];
+            var gifsDiv = $('.gifs');
+            var image = $('<img>');
+            // var src = image.attr('src', element.images.fixed_width_still.url);
+            // var dataStill = image.attr('data-still', element.images.fixed_width_still.url);
+            // var dataAnimage = image.attr('data-animate', element.images.fixed_width.url);
+            // var gifState = image.attr('data-state', 'still');
+            // src = element.images.fixed_width_still.url
+            // data-still = element.images.fixed_width_still.url
+            // data-animate = element.images.fixed_width.url
+            gifsDiv.append(
+                $(image).attr({
+                    'src': element.images.fixed_width_still.url, 
+                    'data-still': element.images.fixed_width_still.url, 
+                    'data-animate': element.images.fixed_width.url, 
+                    'class': 'gif',
+                    'data-state': 'still'
+                })
+            // gifsDiv.append("<img src='" + element.images.fixed_width_still.url + "' />");
+            )
+        // set a condition for a return of an error
         }
-      });
+    })
+}
 
-      $(document).on("click", ".color", displayColorGifs);
+$(document).on("click", ".gif", function() {
+
+    var state = $(this).attr('data-state');
+    var src = $(this).attr('src');
+    var stillData = $(this).attr('data-still')
+    var animateData = $(this).attr('data-animate')
+    
+    console.log("src1: ", src);
+    if (state === "still") {
+        
+        $(this).attr("src", animateData);
+        $(this).attr('data-state', 'animate');
+        console.log("src2: ", src);
+        console.log("state2: ", state);
+    } else if (state === "animate") {
+        
+        $(this).attr("src", stillData);
+        $(this).attr('data-state', 'still');
+        console.log("src3: ", src);
+        console.log("state3: ", state);
+    }
+});
+
+$(document).on("click", ".color", displayColorGifs);
+addButtons();
