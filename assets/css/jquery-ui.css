@@ -102,11 +102,14 @@
 	margin: 0;
 	display: block;
 	outline: 0;
+	border-radius: 4px;
+	font-size: 1.2em;
 }
 .ui-menu .ui-menu {
 	position: absolute;
 }
 .ui-menu .ui-menu-item {
+	
 	margin: 0;
 	cursor: pointer;
 	/* support: IE10, see #8844 */
@@ -329,7 +332,7 @@ a.ui-button:active,
 ----------------------------------*/
 
 /* states and images */
-.ui-icon {
+/* .ui-icon {
 	width: 16px;
 	height: 16px;
 }
@@ -360,10 +363,10 @@ a.ui-button:active,
 }
 .ui-button .ui-icon {
 	background-image: url("images/ui-icons_777777_256x240.png");
-}
+} */
 
 /* positioning */
-.ui-icon-blank { background-position: 16px 16px; }
+/* .ui-icon-blank { background-position: 16px 16px; }
 .ui-icon-caret-1-n { background-position: 0 0; }
 .ui-icon-caret-1-ne { background-position: -16px 0; }
 .ui-icon-caret-1-e { background-position: -32px 0; }
@@ -501,7 +504,7 @@ a.ui-button:active,
 .ui-icon-seek-end { background-position: -64px -160px; }
 .ui-icon-seek-start { background-position: -80px -160px; }
 /* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
-.ui-icon-seek-first { background-position: -80px -160px; }
+/* .ui-icon-seek-first { background-position: -80px -160px; }
 .ui-icon-stop { background-position: -96px -160px; }
 .ui-icon-eject { background-position: -112px -160px; }
 .ui-icon-volume-off { background-position: -128px -160px; }
@@ -538,7 +541,7 @@ a.ui-button:active,
 .ui-icon-grip-solid-vertical { background-position: -32px -224px; }
 .ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
 .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
-.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; } */
 
 
 /* Misc visuals

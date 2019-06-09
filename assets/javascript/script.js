@@ -143,7 +143,8 @@ function displayColorGifs() {
     // console.log(color)
     var apiKey = "BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
     var limit = "15";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + color + "&api_key=" + apiKey + "&limit=" + limit;
+    var rating = "pg-13";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + color + "&api_key=" + apiKey + "&rating=" + rating + "&limit=" + limit;
     var colorDiv = $('<div>');
     
     
@@ -157,22 +158,19 @@ function displayColorGifs() {
         for (let i = 0; i < response.data.length; i++) {
             const element = response.data[i];
             var gifsDiv = $('.gifs');
-            var image = $('<img>');
-            // var src = image.attr('src', element.images.fixed_width_still.url);
-            // var dataStill = image.attr('data-still', element.images.fixed_width_still.url);
-            // var dataAnimage = image.attr('data-animate', element.images.fixed_width.url);
-            // var gifState = image.attr('data-state', 'still');
-            // src = element.images.fixed_width_still.url
-            // data-still = element.images.fixed_width_still.url
-            // data-animate = element.images.fixed_width.url
-            gifsDiv.append(
+            var gifDivs = $('<div class="gif-container">');
+            var image = $('<img class="gif">');
+            var rating = $('<span class="gif-rating">');
+            gifsDiv.append(gifDivs);
+            gifDivs.append(
                 $(image).attr({
                     'src': element.images.fixed_width_still.url, 
                     'data-still': element.images.fixed_width_still.url, 
                     'data-animate': element.images.fixed_width.url, 
                     'class': 'gif',
                     'data-state': 'still'
-                })
+                }),
+                $(rating).text(element.rating)
             // gifsDiv.append("<img src='" + element.images.fixed_width_still.url + "' />");
             )
         // set a condition for a return of an error
@@ -187,19 +185,19 @@ $(document).on("click", ".gif", function() {
     var stillData = $(this).attr('data-still')
     var animateData = $(this).attr('data-animate')
     
-    console.log("src1: ", src);
+    // console.log("src1: ", src);
     if (state === "still") {
         
         $(this).attr("src", animateData);
         $(this).attr('data-state', 'animate');
-        console.log("src2: ", src);
-        console.log("state2: ", state);
+        // console.log("src2: ", src);
+        // console.log("state2: ", state);
     } else if (state === "animate") {
         
         $(this).attr("src", stillData);
         $(this).attr('data-state', 'still');
-        console.log("src3: ", src);
-        console.log("state3: ", state);
+        // console.log("src3: ", src);
+        // console.log("state3: ", state);
     }
 });
 
@@ -208,5 +206,16 @@ $( "#color-input" ).autocomplete({
     source: CSS_COLOR_NAMES_WITH_SPACES
   });
 
+$(document).on({
+    mouseenter: function () {
+        //stuff to do on mouse enter
+        console.log('.' + $(this).attr('class'))
+        $('.gif-rating').css('opacity', '1')
+    },
+    mouseleave: function () {
+        //stuff to do on mouse leave
+        $('.gif-rating').css('opacity', '0')
+    }
+}, ".gif-container");
 $(document).on("click", ".color", displayColorGifs);
 addButtons();

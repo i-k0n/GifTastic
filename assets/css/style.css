@@ -113,6 +113,10 @@ input, button {
     margin-top: 10px;
 }
 
+.color:hover {
+    cursor: pointer;
+}
+
 .color {
     background-color: #999;
     font-family: 'Roboto Condensed', sans-serif;
@@ -134,9 +138,27 @@ input, button {
     padding: 10px;
 }
 
+.gif-container {
+    position: relative;
+}
+
 .gifs img {
     width: 100%;
     padding: 5px 0;
+}
+
+.gif-rating {
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+    font-size: 1em;
+    color: #fffa;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    background-color: #0004;
+    padding: 2px 4px;
+    transition: all 200ms ease-in;
+    opacity: 0;
 }
 
 @media screen and (max-width: 600px) {
