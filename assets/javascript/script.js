@@ -13,9 +13,17 @@
 //   color = math.Random on CSS_COLOR_NAMES_WITH_SPACES array
 
 var colorArrays = [];
-    colorArrays[0] = ['Indian Red', 'Light Coral', 'Salmon', 'Dark Salmon', 'Light Salmon', 'Crimson', 'Red', 'Fire Brick', 'Dark Red'];
+    colorArrays[0] = ['Indian Red', 'Light Coral', 'Salmon', 'Dark Salmon', 'Light Salmon', 'Crimson', 'Red', 'Fire Brick', 'Dark Red']; // reds
+    colorArrays[1] = ['Pink', 'Light Pink', 'Hot Pink', 'Deep Pink', 'Medium Violet Red', 'Pale Violet Red']; // pinks
+    colorArrays[2] = ['Light Salmon', 'Coral', 'Tomato', 'Orange Red', 'Dark Orange', 'Orange']; // oranges
+    colorArrays[3] = ['Gold', 'Yellow', 'Light Yellow', 'Lemon Chiffon', 'Light Golden Rod Yellow', 'Papaya Whip', 'Moccasin', 'Peach Puff', 'Pale Golden Rod', 'Khaki', 'Dark Khaki']; // yellows
+    colorArrays[4] = ['Lavender', 'Thistle', 'Plum', 'Violet', 'Orchid', 'Fuchsia', 'Magenta', 'Medium Orchid', 'Medium Purple', 'Rebecca Purple', 'Blue Violet', 'Dark Violet', 'Dark Orchid', 'Dark Magenta', 'Purple', 'Indigo', 'Slate Blue', 'Dark Slate Blue', 'Medium Slate Blue']; // purples
+    colorArrays[5] = ['Green Yellow', 'Chartreuse', 'Lawn Green', 'Lime', 'Lime Green', 'Pale Green', 'Light Green', 'Medium Spring Green', 'Spring Green', 'Medium Sea Green', 'Sea Green', 'Forest Green', 'Green', 'Dark Green', 'Dark Green', 'Yellow Green', 'Olive Drab', 'Olive', 'Dark Olive Green', 'Medium Aquamarine', 'Dark Sea Green', 'Light Sea Green', 'Dark Cyan', 'Teal']; // greens
+    colorArrays[6] = ['Aqua', 'Cyan', 'Light Cyan', 'Pale Turquoise', 'Aquamarine', 'Turquoise', 'Medium Turquoise', 'Dark Turquoise', 'Cadet Blue', 'Steel Blue', 'Light Steel Blue', 'Powder Blue', 'Light Blue', 'Sky Blue', 'Light Sky Blue', 'Deep Sky Blue', 'Dodger Blue', 'Cornflower Blue', 'Medium Slate Blue', 'Royal Blue', 'Blue', 'Medium Blue', 'Dark Blue', 'Navy', 'Midnight Blue']; // blues
+    colorArrays[7] = ['Cornsilk', 'Blanched Almond', 'Bisque', 'Navajo White', 'Wheat', 'Burly Wood', 'Tan', 'Rosy Brown', 'Sandy Brown', 'Golden Rod', 'Dark Golden Rod', 'Peru', 'Chocolate', 'Saddle Brown', 'Sienna', 'Brown', 'Maroon']; // browns
+    colorArrays[8] = ['Gainsboro', 'Light Gray', 'Silver', 'Dark Gray', 'Dark Souls', 'Gray', 'Dim Gray', 'Light Slate Gray', 'Slate Gray', 'Dark Slate Gray', 'Black'] // grays
 var colors = [];
-var randomNum = (Math.floor(Math.random()));
+var randomNum = (Math.floor(Math.random() * 9));
     colors = colorArrays[randomNum];
     console.log(colors);
 
