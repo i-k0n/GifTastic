@@ -25,7 +25,7 @@ var colorArrays = [];
 var colors = [];
 var randomNum = (Math.floor(Math.random() * 9));
     colors = colorArrays[randomNum];
-    console.log(colors);
+    // console.log(colors);
 
 
 
@@ -123,8 +123,8 @@ $("#add-random-color").on("click", function(event) {
 
     // This line grabs the input from the textbox
     var randomIndex = Math.floor(Math.random() * CSS_COLOR_NAMES_WITH_SPACES.length)
-    console.log(CSS_COLOR_NAMES_WITH_SPACES.length)
-    console.log(Math.floor(Math.random() * CSS_COLOR_NAMES_WITH_SPACES.length))
+    // console.log(CSS_COLOR_NAMES_WITH_SPACES.length)
+    // console.log(Math.floor(Math.random() * CSS_COLOR_NAMES_WITH_SPACES.length))
     // CSS_COLOR_NAMES_WITH_SPACES
     var color = CSS_COLOR_NAMES_WITH_SPACES[randomIndex];
 
@@ -140,7 +140,7 @@ function displayColorGifs() {
     // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
     $('.gifs').empty();
     var color = $(this).attr('data-name').replace(/\s+/g, '-').toLowerCase();
-    console.log(color)
+    // console.log(color)
     var apiKey = "BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
     var limit = "15";
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + color + "&api_key=" + apiKey + "&limit=" + limit;
@@ -153,7 +153,7 @@ function displayColorGifs() {
         method: "GET"
     }).then(function(response) {
     //   console.log(JSON.stringify(response))
-        console.log(response)
+        // console.log(response)
         for (let i = 0; i < response.data.length; i++) {
             const element = response.data[i];
             var gifsDiv = $('.gifs');
@@ -202,6 +202,11 @@ $(document).on("click", ".gif", function() {
         console.log("state3: ", state);
     }
 });
+
+// jQuery UI widget for autocomplete to help users find a color to search
+$( "#color-input" ).autocomplete({
+    source: CSS_COLOR_NAMES_WITH_SPACES
+  });
 
 $(document).on("click", ".color", displayColorGifs);
 addButtons();

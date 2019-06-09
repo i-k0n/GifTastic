@@ -62,7 +62,7 @@ input, button {
     opacity:  1;
 }
 #color-input::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #bbb; bbbopacity:  1;
+    color: #bbb; opacity:  1;
 }
 #color-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #bbb;  
@@ -106,9 +106,11 @@ input, button {
 
 .color-buttons {
     max-width: 800px;
-    padding: 5px;
+    padding: 10px 5px 5px;
     display: flex;
     flex-wrap: wrap;
+    border-top: 1px solid #bbb;
+    margin-top: 10px;
 }
 
 .color {
