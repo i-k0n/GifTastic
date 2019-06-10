@@ -209,7 +209,7 @@ $( "#color-input" ).autocomplete({
 $(document).on({
     mouseenter: function () {
         //stuff to do on mouse enter
-        console.log('.' + $(this).attr('class'))
+        // console.log('.' + $(this).attr('class'))
         $('.gif-rating').css('opacity', '1')
     },
     mouseleave: function () {
