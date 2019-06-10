@@ -17,6 +17,11 @@ input, button {
     -webkit-appearance: none;
 }
 
+@font-face {
+    font-family: 'Segoe UI';
+    src: url(../fonts/segoeui.ttf);
+}
+
 .wrapper {
     width: 100%;
 }
@@ -40,7 +45,7 @@ input, button {
 }
 
 #color-input {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
     height: 100%;
     padding: 0.375rem 0.75rem;
     font-size: 1.25rem;
@@ -82,7 +87,7 @@ input, button {
     line-height: 1.5;
     border-radius: 0.4rem;
     font-weight: 600;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
     cursor: pointer;
 }
 
