@@ -30,6 +30,7 @@ input, button {
     max-width: 800px;
     margin: 0 auto;
     padding-top: 50px;
+    position: relative;
 }
 
 #add-color-form {
@@ -41,6 +42,8 @@ input, button {
     grid-template-rows: auto;
     grid-template-columns: 1fr 100px 100px;
     grid-gap: 0.5em;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ccc;
     /* justify-content: stretch; */
 }
 
@@ -56,24 +59,24 @@ input, button {
 }
 
 #color-input::-webkit-input-placeholder {
-    color: #bbb;       
+    color: #ccc;       
 }
 #color-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #bbb;  
+    color: #ccc;  
     opacity:  1;
 }
 #color-input::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #bbb; opacity:  1;
+    color: #ccc; opacity:  1;
 }
 #color-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #bbb;  
+    color: #ccc;  
 }
 #color-input::-ms-input-placeholder { /* Microsoft Edge */
-    color: #bbb;  
+    color: #ccc;  
 }
 
 #color-input::placeholder { /* Most modern browsers support this now. */
-    color: #bbb;  
+    color: #ccc;  
 }
 
 #add-color, #add-random-color {
@@ -100,13 +103,25 @@ input, button {
     background-color: tomato;
 }
 
+h2.pick-a-color {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding-left: 12px;
+    position: relative;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #aaa;
+    top: -12px;
+    background: url(../images/bg.png);
+    width: 115px;
+}
+
 .color-buttons {
     max-width: 800px;
-    padding: 10px 5px 5px;
+    padding: 0 5px 5px;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
-    margin: 10px 0 10px;
+    margin-bottom: 10px;
 }
 
 .color:hover {
@@ -156,6 +171,12 @@ input, button {
     padding: 2px 4px;
     transition: all 200ms ease-in;
     opacity: 0;
+}
+
+.load-more {
+    cursor: pointer;
+    font-family: 'Source Sans Pro', sans-serif;
+    
 }
 
 @media screen and (max-width: 600px) {
